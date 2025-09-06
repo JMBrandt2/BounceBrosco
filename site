@@ -1,0 +1,1228 @@
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { 
+  Star, 
+  Shield, 
+  Clock, 
+  Heart, 
+  ArrowRight, 
+  CheckCircle,
+  Phone,
+  Zap
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+const services = [
+  {
+    title: "Bounce Houses",
+    description: "Classic fun for all ages with safety-first design",
+    icon: "🏰",
+    price: "$200/day",
+    features: ["Various themes", "Safety nets", "Commercial grade"]
+  },
+  {
+    title: "Large Slides", 
+    description: "Thrilling slides that create lasting memories",
+    icon: "🎢",
+    price: "$400/day",
+    features: ["Multiple heights", "Easy setup", "Crowd favorites"]
+  },
+  {
+    title: "Jumbo Units",
+    description: "Massive entertainment with maximum fun capacity",
+    icon: "🎪",
+    price: "$500/day",
+    features: ["Largest size", "Multi-activity", "Ultimate experience"]
+  }
+];
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    location: "Carmel, IN",
+    text: "Bounce Bros Co made my daughter's birthday unforgettable! Professional, clean, and the kids had a blast.",
+    rating: 5
+  },
+  {
+    name: "Mike Chen",
+    location: "Fishers, IN", 
+    text: "Outstanding service from start to finish. The equipment was pristine and setup was seamless.",
+    rating: 5
+  },
+  {
+    name: "Lisa Rodriguez",
+    location: "Noblesville, IN",
+    text: "Been using them for three years running. Always reliable, always fun, always professional!",
+    rating: 5
+  }
+];
+
+export default function Landing() {
+  return (
+    <div className="overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-8">
+            <span className="inline-block bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 bg-clip-text text-transparent font-semibold text-lg mb-4">
+              ⭐ #1 Inflatable Rentals in Hamilton & Boone County
+            </span>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              Make Every
+              <span className="block bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                Event Epic
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Premium inflatable rentals that bring joy, laughter, and unforgettable memories 
+              to your special occasions across Indiana.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <Link to={createPageUrl("Pricing")}>
+              <Button className="bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white px-8 py-4 text-lg font-semibold rounded-full hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 min-w-[200px]">
+                View Pricing
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="tel:555-BOUNCE">
+              <Button variant="outline" className="px-8 py-4 text-lg font-semibold rounded-full border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 min-w-[200px]">
+                <Phone className="mr-2 w-5 h-5" />
+                Call Now
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {[
+              { icon: Shield, label: "Fully Insured", desc: "& Licensed" },
+              { icon: Clock, label: "On-Time", desc: "Delivery" }, 
+              { icon: Star, label: "5-Star", desc: "Reviews" },
+              { icon: Heart, label: "Family", desc: "Owned" }
+            ].map((item, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-cyan-900/50 via-pink-900/50 to-orange-900/50 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-cyan-800">
+                  <item.icon className="w-8 h-8 text-cyan-400" />
+                </div>
+                <h3 className="font-bold text-white">{item.label}</h3>
+                <p className="text-sm text-gray-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Our <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">Rentals</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              From backyard birthdays to corporate events, we have the perfect inflatable 
+              entertainment for every celebration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="group hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 transform hover:-translate-y-2 border-0 bg-gradient-to-br from-gray-900 to-black border border-gray-800">
+                <CardContent className="p-8 text-center">
+                  <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-3">
+                    {service.price}
+                  </div>
+                  <p className="text-gray-400 mb-6">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center text-sm text-gray-300">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Why Bounce Bros Co?</h2>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              We're not just a rental company – we're memory makers, safety experts, and your partners in fun.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Zap,
+                title: "Lightning Fast Setup",
+                description: "Professional installation in 30 minutes or less. We handle everything so you can focus on the fun."
+              },
+              {
+                icon: Shield,
+                title: "Safety First Always", 
+                description: "All equipment is sanitized, inspected, and meets the highest safety standards. Your peace of mind is priceless."
+              },
+              {
+                icon: Heart,
+                title: "Local & Trusted",
+                description: "Family-owned business serving our Indiana community with pride. Your neighbors you can count on."
+              }
+            ].map((item, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-20 h-20 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                <p className="text-lg opacity-90 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              What Our <span className="bg-gradient-to-r from-cyan-500 to-pink-500 bg-clip-text text-transparent">Families</span> Say
+            </h2>
+            <p className="text-xl text-gray-400">Real stories from real celebrations across Indiana</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-black border border-gray-800 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-gray-300 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
+                  <div>
+                    <p className="font-bold text-white">{testimonial.name}</p>
+                    <p className="text-sm text-gray-500">{testimonial.location}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-black">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Create <br />
+            <span className="bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+              Amazing Memories?
+            </span>
+          </h2>
+          <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+            Book your inflatable rental today and let us bring the fun to your event. 
+            Free quotes, flexible scheduling, and guaranteed smiles!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to={createPageUrl("Contact")}>
+              <Button className="bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white px-10 py-4 text-lg font-semibold rounded-full hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                Get Free Quote
+              </Button>
+            </Link>
+            <Link to="tel:555-BOUNCE">
+              <Button variant="outline" className="px-10 py-4 text-lg font-semibold rounded-full border-2 border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300">
+                <Phone className="mr-2 w-5 h-5" />
+                555-BOUNCE
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Check, Star, Phone, Castle, Zap, Crown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+const rentals = [
+  {
+    name: "Bounce Houses",
+    price: "$200",
+    icon: "🏰",
+    description: "Perfect for parties and events of all sizes",
+    features: [
+      "Various themes available",
+      "Safety nets included", 
+      "Commercial grade quality",
+      "Professional setup & takedown",
+      "Free delivery within service area",
+      "Full day rental (8 hours)"
+    ],
+    color: "from-cyan-500 to-cyan-600"
+  },
+  {
+    name: "Large Slides",
+    price: "$400", 
+    icon: "🎢",
+    description: "Thrilling slides that create lasting memories",
+    features: [
+      "Multiple height options",
+      "Dry or water slide options",
+      "Professional installation",
+      "Safety equipment included",
+      "Free delivery within service area", 
+      "Full day rental (8 hours)",
+      "Suitable for all ages"
+    ],
+    color: "from-pink-500 to-pink-600"
+  },
+  {
+    name: "Jumbo Units",
+    price: "$500",
+    icon: "🎪", 
+    description: "Massive entertainment for the ultimate experience",
+    features: [
+      "Largest available units",
+      "Multiple activity zones",
+      "Maximum capacity fun",
+      "Professional setup crew",
+      "Premium safety features",
+      "Free delivery within service area",
+      "Full day rental (8 hours)",
+      "Perfect for large events"
+    ],
+    color: "from-orange-500 to-orange-600"
+  }
+];
+
+const included = [
+  { name: "100ft Extension Cord", description: "Power wherever you need it" },
+  { name: "100ft Water Hose", description: "For water slide setups" },
+  { name: "Commercial Blowers", description: "Powerful, reliable inflation" }
+];
+
+const addOns = [
+  { name: "Generator Rental", price: "$75/day", description: "For locations without power access" },
+  { name: "Day Before Setup", price: "$50", description: "Setup the night before your event" }
+];
+
+export default function Pricing() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      {/* Header */}
+      <section className="pt-20 pb-16 bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Simple Day Rates
+          </h1>
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">
+            Straightforward pricing for premium inflatable entertainment 
+            across Hamilton and Boone County. Full day rentals (8 hours).
+          </p>
+        </div>
+      </section>
+
+      {/* Pricing Cards */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="bg-gradient-to-r from-cyan-500 to-pink-500 text-white mb-4 px-4 py-2 text-lg">
+              ⭐ Daily Rental Rates
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Choose Your <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">Adventure</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              All rentals include professional delivery, setup, takedown, and safety equipment. 
+              No hidden fees, no surprises.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            {rentals.map((rental, index) => (
+              <Card key={index} className="overflow-hidden border border-gray-800 bg-gradient-to-br from-gray-900 to-black shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 transform hover:-translate-y-2">
+                <CardHeader className="text-center pt-8">
+                  <div className={`w-20 h-20 mx-auto mb-4 bg-gradient-to-r ${rental.color} rounded-full flex items-center justify-center`}>
+                    <span className="text-4xl">{rental.icon}</span>
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-white">{rental.name}</CardTitle>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                      {rental.price}
+                    </span>
+                    <span className="text-gray-400 text-lg"> / day</span>
+                  </div>
+                  <p className="text-gray-400">{rental.description}</p>
+                </CardHeader>
+
+                <CardContent className="px-6 pb-8">
+                  <ul className="space-y-3 mb-8">
+                    {rental.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="space-y-3">
+                    <Link to={createPageUrl("Contact")}>
+                      <Button className={`w-full py-3 font-semibold rounded-full transition-all duration-300 hover:shadow-lg bg-gradient-to-r ${rental.color} text-white`}>
+                        Book Now
+                      </Button>
+                    </Link>
+                    <Link to="tel:555-BOUNCE">
+                      <Button variant="outline" className="w-full py-3 font-semibold rounded-full border-2 border-gray-600 text-gray-300 hover:bg-gray-800 transition-all duration-300">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Call for Quote
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* What's Included & Add-ons Section */}
+          <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-3xl shadow-xl p-8 md:p-12">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-white mb-4">
+                What's <span className="bg-gradient-to-r from-cyan-500 to-pink-500 bg-clip-text text-transparent">Included</span>
+              </h3>
+              <p className="text-lg text-gray-400">Everything you need for a successful event</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              {included.map((item, index) => (
+                <div key={index} className="bg-gradient-to-br from-cyan-900/20 to-pink-900/20 border border-cyan-800 rounded-xl p-6 text-center hover:shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <Check className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="font-bold text-white text-lg mb-2">{item.name}</h4>
+                  <p className="text-gray-400">{item.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-cyan-500/10 via-pink-500/10 to-orange-500/10 border border-gray-700 rounded-2xl p-6 mb-8">
+              <h4 className="text-xl font-bold text-white mb-4 text-center">Every Rental Includes:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300">
+                <div className="flex items-center">
+                  <Check className="w-5 h-5 text-green-500 mr-2" />
+                  Professional delivery & pickup
+                </div>
+                <div className="flex items-center">
+                  <Check className="w-5 h-5 text-green-500 mr-2" />
+                  Complete setup & takedown
+                </div>
+                <div className="flex items-center">
+                  <Check className="w-5 h-5 text-green-500 mr-2" />
+                  All safety equipment
+                </div>
+                <div className="flex items-center">
+                  <Check className="w-5 h-5 text-green-500 mr-2" />
+                  Sanitization before delivery
+                </div>
+              </div>
+            </div>
+
+            {/* Add-ons */}
+            <div className="text-center mb-8">
+              <h4 className="text-2xl font-bold text-white mb-4">
+                Popular <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">Add-Ons</span>
+              </h4>
+              <p className="text-gray-400">Enhance your rental experience</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {addOns.map((addon, index) => (
+                <div key={index} className="bg-gradient-to-br from-orange-900/20 to-pink-900/20 border border-orange-800 rounded-xl p-6 hover:shadow-lg hover:shadow-orange-500/20 transition-shadow duration-300">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-bold text-white text-lg">{addon.name}</h4>
+                    <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent font-bold text-lg">
+                      {addon.price}
+                    </span>
+                  </div>
+                  <p className="text-gray-400">{addon.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-16 bg-gradient-to-r from-gray-900 to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Service Areas */}
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center justify-center md:justify-start">
+                <span className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-full flex items-center justify-center mr-3">
+                  <Check className="w-5 h-5 text-white" />
+                </span>
+                Free Delivery Areas
+              </h3>
+              <div className="grid grid-cols-2 gap-2 text-gray-300 mb-4">
+                <div>• Carmel</div>
+                <div>• Fishers</div>
+                <div>• Noblesville</div>
+                <div>• Westfield</div>
+                <div>• Zionsville</div>
+                <div>• Lebanon</div>
+                <div>• Cicero</div>
+              </div>
+              <p className="text-sm text-gray-500">
+                Outside our standard service area? We may still be able to help! 
+                Additional delivery fees may apply for locations beyond our free delivery zone.
+              </p>
+            </div>
+
+            {/* Rental Terms */}
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center justify-center md:justify-start">
+                <Star className="w-8 h-8 text-yellow-500 mr-3" />
+                Rental Terms
+              </h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center">
+                  <Zap className="w-5 h-5 text-cyan-500 mr-2" />
+                  8-hour rental period (full day)
+                </li>
+                <li className="flex items-center">
+                  <Castle className="w-5 h-5 text-pink-500 mr-2" />
+                  Setup the night before available
+                </li>
+                <li className="flex items-center">
+                  <Crown className="w-5 h-5 text-orange-500 mr-2" />
+                  Clean, sanitized equipment guaranteed
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Book Your Rental?
+          </h2>
+          <p className="text-xl opacity-90 mb-8 leading-relaxed">
+            Simple pricing, professional service, and guaranteed fun. 
+            Contact us today to reserve your date!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to={createPageUrl("Contact")}>
+              <Button className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-xl">
+                Get Your Quote
+              </Button>
+            </Link>
+            <Link to="tel:555-BOUNCE">
+              <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 px-8 py-3 text-lg font-semibold rounded-full transition-all duration-300">
+                <Phone className="mr-2 w-5 h-5" />
+                Call 555-BOUNCE
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+import React, { useState } from "react";
+import { ContactInquiry } from "@/entities/ContactInquiry";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  Send,
+  CheckCircle,
+  Star,
+  Heart,
+  Plus,
+  X
+} from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    event_dates: [],
+    event_type: "",
+    package_interest: "",
+    location: "",
+    message: "",
+    contact_preference: "either"
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [newDate, setNewDate] = useState("");
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const addDate = () => {
+    if (newDate && !formData.event_dates.includes(newDate)) {
+      setFormData(prev => ({
+        ...prev,
+        event_dates: [...prev.event_dates, newDate]
+      }));
+      setNewDate("");
+    }
+  };
+
+  const removeDate = (dateToRemove) => {
+    setFormData(prev => ({
+      ...prev,
+      event_dates: prev.event_dates.filter(date => date !== dateToRemove)
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      // Convert dates array to string for storage
+      const submitData = {
+        ...formData,
+        event_date: formData.event_dates.join(", ")
+      };
+      await ContactInquiry.create(submitData);
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        event_dates: [],
+        event_type: "",
+        package_interest: "",
+        location: "",
+        message: "",
+        contact_preference: "either"
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+    
+    setIsSubmitting(false);
+  };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black flex items-center justify-center px-4">
+        <Card className="max-w-2xl w-full text-center shadow-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+          <CardContent className="p-12">
+            <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-10 h-10 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-4">Thank You!</h2>
+            <p className="text-lg text-gray-400 mb-8">
+              We've received your inquiry and will get back to you within 2 hours during business hours. 
+              Get ready for an amazing event!
+            </p>
+            <div className="space-y-3">
+              <p className="font-semibold text-white">Need immediate assistance?</p>
+              <Button className="bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all duration-300">
+                <Phone className="mr-2 w-5 h-5" />
+                Call 555-BOUNCE
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      {/* Header */}
+      <section className="pt-20 pb-16 bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Let's Plan Your Perfect Event
+          </h1>
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">
+            Ready to bring joy and excitement to your celebration? We're here to make it happen!
+          </p>
+        </div>
+      </section>
+
+      <div className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div>
+            <Card className="shadow-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+              <CardHeader className="text-center pb-8">
+                <CardTitle className="text-2xl md:text-3xl font-bold text-white">
+                  Get Your <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">Free Quote</span>
+                </CardTitle>
+                <p className="text-gray-400 mt-2">Fill out the form below and we'll get back to you within 2 hours!</p>
+              </CardHeader>
+              
+              <CardContent className="px-8 pb-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="font-semibold text-gray-300">Full Name *</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange('name', e.target.value)}
+                        className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="font-semibold text-gray-300">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="font-semibold text-gray-300">Email Address *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg"
+                      required
+                    />
+                  </div>
+
+                  {/* Multiple Event Dates */}
+                  <div className="space-y-2">
+                    <Label className="font-semibold text-gray-300">Event Dates</Label>
+                    <div className="flex gap-2">
+                      <Input
+                        type="date"
+                        value={newDate}
+                        onChange={(e) => setNewDate(e.target.value)}
+                        className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg flex-1"
+                      />
+                      <Button
+                        type="button"
+                        onClick={addDate}
+                        className="bg-gradient-to-r from-cyan-500 to-pink-500 hover:shadow-lg px-4"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </Button>
+                    </div>
+                    {formData.event_dates.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {formData.event_dates.map((date, index) => (
+                          <div key={index} className="bg-gradient-to-r from-cyan-500/20 to-pink-500/20 border border-cyan-600 rounded-full px-3 py-1 flex items-center gap-2">
+                            <span className="text-sm text-white">{new Date(date).toLocaleDateString()}</span>
+                            <button
+                              type="button"
+                              onClick={() => removeDate(date)}
+                              className="text-white hover:text-red-400 transition-colors"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="event_type" className="font-semibold text-gray-300">Event Type</Label>
+                      <Select value={formData.event_type} onValueChange={(value) => handleInputChange('event_type', value)}>
+                        <SelectTrigger className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg">
+                          <SelectValue placeholder="Select event type" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-800 border-gray-700">
+                          <SelectItem value="birthday_party">Birthday Party</SelectItem>
+                          <SelectItem value="graduation">Graduation Party</SelectItem>
+                          <SelectItem value="corporate_event">Corporate Event</SelectItem>
+                          <SelectItem value="school_event">School Event</SelectItem>
+                          <SelectItem value="community_event">Community Event</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="package_interest" className="font-semibold text-gray-300">Rental Interest</Label>
+                      <Select value={formData.package_interest} onValueChange={(value) => handleInputChange('package_interest', value)}>
+                        <SelectTrigger className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg">
+                          <SelectValue placeholder="Select rental type" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-800 border-gray-700">
+                          <SelectItem value="bounce_house">Bounce House ($200/day)</SelectItem>
+                          <SelectItem value="large_slide">Large Slide ($400/day)</SelectItem>
+                          <SelectItem value="jumbo_unit">Jumbo Unit ($500/day)</SelectItem>
+                          <SelectItem value="multiple">Multiple Units</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="location" className="font-semibold text-gray-300">Event Location</Label>
+                    <Input
+                      id="location"
+                      type="text"
+                      value={formData.location}
+                      onChange={(e) => handleInputChange('location', e.target.value)}
+                      className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg"
+                      placeholder="City or address"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="font-semibold text-gray-300">Special Requests or Questions</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
+                      className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg h-24"
+                      placeholder="Tell us about your vision..."
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="contact_preference" className="font-semibold text-gray-300">Preferred Contact Method</Label>
+                    <Select value={formData.contact_preference} onValueChange={(value) => handleInputChange('contact_preference', value)}>
+                      <SelectTrigger className="border-2 border-gray-700 bg-gray-800 text-white focus:border-cyan-500 rounded-lg">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent className="bg-gray-800 border-gray-700">
+                        <SelectItem value="email">Email</SelectItem>
+                        <SelectItem value="phone">Phone</SelectItem>
+                        <SelectItem value="either">Either</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white py-4 text-lg font-semibold rounded-full hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  >
+                    {isSubmitting ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        <Send className="mr-2 w-5 h-5" />
+                        Get My Free Quote
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Quick Contact */}
+            <Card className="shadow-xl border border-gray-800 bg-gradient-to-br from-cyan-500 via-pink-500 to-orange-500 text-white">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6">Need to Talk Right Now?</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center space-x-3">
+                    <Phone className="w-6 h-6" />
+                    <div>
+                      <p className="font-semibold">555-BOUNCE (555-268-6235)</p>
+                      <p className="text-cyan-100 text-sm">Available 7 days a week</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Mail className="w-6 h-6" />
+                    <div>
+                      <p className="font-semibold">info@bouncebrosco.com</p>
+                      <p className="text-cyan-100 text-sm">Response within 2 hours</p>
+                    </div>
+                  </div>
+                </div>
+                <Button className="w-full bg-white text-cyan-600 hover:bg-gray-100 py-3 font-semibold rounded-full transition-all duration-300">
+                  <Phone className="mr-2 w-5 h-5" />
+                  Call Now for Instant Quote
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Business Hours */}
+            <Card className="shadow-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <Clock className="w-6 h-6 mr-2 text-cyan-400" />
+                  Business Hours
+                </h3>
+                <div className="space-y-2 text-gray-300">
+                  <div className="flex justify-between">
+                    <span>Monday - Friday</span>
+                    <span className="font-semibold">8:00 AM - 8:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Saturday</span>
+                    <span className="font-semibold">8:00 AM - 6:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sunday</span>
+                    <span className="font-semibold">10:00 AM - 4:00 PM</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Service Areas */}
+            <Card className="shadow-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <MapPin className="w-6 h-6 mr-2 text-pink-400" />
+                  Service Areas
+                </h3>
+                <p className="text-gray-400 mb-4">We proudly serve Hamilton and Boone County, Indiana including:</p>
+                <div className="grid grid-cols-2 gap-2 text-gray-300">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Carmel
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Fishers
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Noblesville
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Westfield
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Zionsville
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Lebanon
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Cicero
+                  </div>
+                </div>
+                <p className="text-sm text-gray-500 mt-4">
+                  Outside our area? We may still be able to help! Additional delivery fees may apply.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Why Choose Us */}
+            <Card className="shadow-xl border border-gray-800 bg-gradient-to-br from-orange-900/20 to-pink-900/20">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <Heart className="w-6 h-6 mr-2 text-orange-400" />
+                  Why Choose Bounce Bros Co?
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <Star className="w-5 h-5 text-yellow-500 mr-2" />
+                    <span className="text-gray-300">5-star rated & fully insured</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-cyan-400 mr-2" />
+                    <span className="text-gray-300">Lightning-fast setup & takedown</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Heart className="w-5 h-5 text-pink-400 mr-2" />
+                    <span className="text-gray-300">Family-owned & community focused</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+{
+  "name": "ContactInquiry",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Customer's full name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Customer's email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Customer's phone number"
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the event"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "birthday_party",
+        "graduation",
+        "corporate_event",
+        "school_event",
+        "community_event",
+        "other"
+      ],
+      "description": "Type of event"
+    },
+    "package_interest": {
+      "type": "string",
+      "enum": [
+        "basic_bounce",
+        "ultimate_fun",
+        "premium_party",
+        "custom"
+      ],
+      "description": "Package the customer is interested in"
+    },
+    "guest_count": {
+      "type": "number",
+      "description": "Expected number of guests"
+    },
+    "location": {
+      "type": "string",
+      "description": "Event location/address"
+    },
+    "message": {
+      "type": "string",
+      "description": "Additional message or special requests"
+    },
+    "contact_preference": {
+      "type": "string",
+      "enum": [
+        "email",
+        "phone",
+        "either"
+      ],
+      "default": "either",
+      "description": "Preferred contact method"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "phone"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Phone, MapPin, Mail } from "lucide-react";
+
+export default function Layout({ children, currentPageName }) {
+  const location = useLocation();
+
+  const navItems = [
+    { name: "Home", path: createPageUrl("Landing") },
+    { name: "Pricing", path: createPageUrl("Pricing") },
+    { name: "Contact", path: createPageUrl("Contact") }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      <style>{`
+        :root {
+          --bounce-cyan: #00D4FF;
+          --bounce-pink: #FF1493;
+          --bounce-orange: #FF8C00;
+          --bounce-navy: #1a1b3a;
+          --gradient-primary: linear-gradient(135deg, #00D4FF 0%, #FF1493 50%, #FF8C00 100%);
+        }
+      `}</style>
+      
+      {/* Header */}
+      <header className="bg-black/90 backdrop-blur-md shadow-lg border-b border-cyan-900 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            {/* Logo */}
+            <Link to={createPageUrl("Landing")} className="flex items-center space-x-3 group">
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b6fa3b1e80fac9017699c7/19ca7266b_IMG_3558.png"
+                alt="Bounce Bros Co. Logo"
+                className="w-16 h-16 group-hover:scale-105 transition-transform duration-300"
+              />
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                  Bounce Bros Co.
+                </h1>
+                <p className="text-sm text-gray-400 -mt-1">Premium Inflatables</p>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`px-4 py-2 rounded-full transition-all duration-300 font-medium ${
+                    location.pathname === item.path
+                      ? 'bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white shadow-lg'
+                      : 'text-gray-300 hover:text-cyan-400 hover:bg-gray-800'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                to="tel:555-BOUNCE"
+                className="bg-gradient-to-r from-cyan-500 via-pink-500 to-orange-500 text-white px-6 py-2 rounded-full hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold"
+              >
+                Call Now
+              </Link>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button className="md:hidden p-2 rounded-lg bg-gray-800 text-cyan-400">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1">
+        {children}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-black text-white relative overflow-hidden border-t border-gray-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-pink-500/10 to-orange-500/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Company Info */}
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
+                <img 
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b6fa3b1e80fac9017699c7/19ca7266b_IMG_3558.png"
+                  alt="Bounce Bros Co. Logo"
+                  className="w-12 h-12"
+                />
+                <h3 className="text-xl font-bold">Bounce Bros Co.</h3>
+              </div>
+              <p className="text-gray-400 mb-4">
+                Premier inflatable rentals serving Hamilton and Boone County, Indiana. 
+                Making your events unforgettable since day one.
+              </p>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6 text-pink-400">Contact Us</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-5 h-5 text-cyan-400" />
+                  <span className="text-gray-300">555-BOUNCE (555-268-6235)</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-5 h-5 text-orange-400" />
+                  <span className="text-gray-300">info@bouncebrosco.com</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <MapPin className="w-5 h-5 text-pink-400" />
+                  <span className="text-gray-300">Hamilton & Boone County, IN</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Service Areas */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6 text-orange-400">Service Areas</h3>
+              <ul className="text-gray-400 space-y-2">
+                <li>• Carmel</li>
+                <li>• Fishers</li>
+                <li>• Noblesville</li>
+                <li>• Westfield</li>
+                <li>• Zionsville</li>
+                <li>• Lebanon</li>
+                <li>• Cicero</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+            <p className="text-gray-500">
+              © 2024 Bounce Bros Co. All rights reserved. | bouncebrosco.com
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
